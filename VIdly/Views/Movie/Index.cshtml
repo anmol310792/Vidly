@@ -1,14 +1,14 @@
-﻿@model IEnumerable<VIdly.Models.Customer>
+﻿@model IEnumerable<VIdly.Models.Movie>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Customers</h2>
+<h2>Movies</h2>
 
 @if (!Model.Any())
 {
-    <p>No Customers Exist</p>
+    <p>No Movies to view</p>
 }
 else
 {
@@ -19,12 +19,13 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var customer in Model)
+            @foreach (var movie in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(customer.Name, "Details", "Customer", new { customer.Id }, null)</td>
+                    <td>@Html.ActionLink(movie.Name,"Details","Movie", new { movie.Id}, null)</td>
                 </tr>
             }
         </tbody>
     </table>
 }
+
