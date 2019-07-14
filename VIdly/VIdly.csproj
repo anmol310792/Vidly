@@ -194,9 +194,14 @@
     <Compile Include="Migrations\201907140939484_AddMoviesDB.Designer.cs">
       <DependentUpon>201907140939484_AddMoviesDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907140945200_AddGenre.cs" />
+    <Compile Include="Migrations\201907140945200_AddGenre.Designer.cs">
+      <DependentUpon>201907140945200_AddGenre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDBContext.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -291,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907140939484_AddMoviesDB.resx">
       <DependentUpon>201907140939484_AddMoviesDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907140945200_AddGenre.resx">
+      <DependentUpon>201907140945200_AddGenre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
