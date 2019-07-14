@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201907140945200_AddGenre.Designer.cs">
       <DependentUpon>201907140945200_AddGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907140949285_PopulateDateInGenre.cs" />
+    <Compile Include="Migrations\201907140949285_PopulateDateInGenre.Designer.cs">
+      <DependentUpon>201907140949285_PopulateDateInGenre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDBContext.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -299,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907140945200_AddGenre.resx">
       <DependentUpon>201907140945200_AddGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907140949285_PopulateDateInGenre.resx">
+      <DependentUpon>201907140949285_PopulateDateInGenre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
