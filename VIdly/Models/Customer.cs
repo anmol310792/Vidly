@@ -15,8 +15,10 @@ namespace VIdly.Models
 
         public MembershipType MembershipType { get; set; }
 
+        [Display(Name = "MembershipType Type")]
         public byte MembershipTypeId { get; set; }
 
+        [Display(Name = "Date Of Birth")]
         public DateTime? Birthdate { get; set; }
     }
 }
