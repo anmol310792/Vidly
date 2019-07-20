@@ -5,7 +5,7 @@
 }
 
 <h2>Movies</h2>
-<button type="button" class="btn btn-primary" onclick="@Html.ActionLink("Add New Movie", "New", "Movie")"></button>
+@Html.ActionLink("Add new Movie", "New", "Movie", htmlAttributes : new { @class = "btn btn-primary", @role = "button"})<br /><br />
 
 
 @if (!Model.Any())
