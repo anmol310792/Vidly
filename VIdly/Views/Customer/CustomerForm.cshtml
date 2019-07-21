@@ -4,7 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New Customer</h2>
+@{ 
+    var title = (Model.Customers == null || Model.Customers.Id == 0) ? "New Customer" : "Edit Customer";
+}
+
+<h2>title</h2>
 
 @using (Html.BeginForm("Save", "Customer"))
 {

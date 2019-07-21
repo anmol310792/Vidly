@@ -210,6 +210,10 @@
     <Compile Include="Migrations\201907200419248_MakeDateFieldsAsNullable.Designer.cs">
       <DependentUpon>201907200419248_MakeDateFieldsAsNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907210408021_ReleaseDateAsRequired.cs" />
+    <Compile Include="Migrations\201907210408021_ReleaseDateAsRequired.Designer.cs">
+      <DependentUpon>201907210408021_ReleaseDateAsRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDBContext.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -325,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907200419248_MakeDateFieldsAsNullable.resx">
       <DependentUpon>201907200419248_MakeDateFieldsAsNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907210408021_ReleaseDateAsRequired.resx">
+      <DependentUpon>201907210408021_ReleaseDateAsRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

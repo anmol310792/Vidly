@@ -23,10 +23,13 @@ namespace VIdly.Models
 
         public DateTime? DateAdded { get; set; }
 
+        [Required]
         [Display(Name = "Release Date")]
-        public DateTime? ReleaseDate { get; set; }
+        public DateTime ReleaseDate { get; set; }
 
+        [Required]
         [Display(Name = "Number in Stock")]
+        [Range(1,100)]
         public int NumberinStock { get; set; }
     }
 }
