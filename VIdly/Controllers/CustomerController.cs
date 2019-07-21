@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using VIdly.Models;
 using System.Data.Entity;
 using VIdly.ViewModels;
+using System;
 
 namespace VIdly.Controllers
 {
@@ -26,6 +27,7 @@ namespace VIdly.Controllers
 
             var viewModel = new CustomerFormViewModel
             {
+                Customers = new Customer(),
                 MembershipTypes = membershipTypes
             };
 
@@ -34,8 +36,19 @@ namespace VIdly.Controllers
 
  
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(CustomerFormViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {                
+                var customerModel = new CustomerFormViewModel
+                {
+                    Customers = viewModel.Customers,
+                    MembershipTypes = _context.Membershiptypes.ToList()
+                };
+                return View("CustomerForm", customerModel);
+            }
+
             if (viewModel.Customers.Id == 0)
             {
                 _context.Customers.Add(viewModel.Customers);

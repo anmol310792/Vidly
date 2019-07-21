@@ -11,17 +11,20 @@
     <div class="form-group">
         @Html.LabelFor(c => c.Customers.Name)
         @Html.TextBoxFor(c => c.Customers.Name, new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(c => c.Customers.Birthdate)
-        @Html.TextBoxFor(c => c.Customers.Birthdate, "{0:d MMMM yyyy}" , new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customers.Name)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(c => c.Customers.MembershipTypeId)
         @Html.DropDownListFor(c => c.Customers.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select MembershipType", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customers.MembershipTypeId)
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(c => c.Customers.Birthdate)
+        @Html.TextBoxFor(c => c.Customers.Birthdate, "{0:d MMMM yyyy}" , new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customers.Birthdate)
+    </div>  
 
     <div class="checkbox">
         <label class="form-check-label">
@@ -30,6 +33,11 @@
     </div>
 
     @Html.HiddenFor(c => c.Customers.Id);
-
+    @Html.AntiForgeryToken();
     <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
 }
