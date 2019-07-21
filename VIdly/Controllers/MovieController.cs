@@ -30,35 +30,33 @@ namespace VIdly.Controllers
 
             var viewModle = new MovieFormViewModel
             {
-                Genres = genre,
-                Movies = new Movie()
+                Genres = genre
             };
             return View("MovieForm", viewModle);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(MovieFormViewModel viewModel)
+        public ActionResult Save(Movie movie)
         {
             if (!ModelState.IsValid)
             {
-                var movieModel = new MovieFormViewModel
+                var movieModel = new MovieFormViewModel(movie)
                 {
-                    Movies = viewModel.Movies,
                     Genres = _context.Genres.ToList()
                 };
                 return View ("MovieForm", movieModel);
             }
-            if (viewModel.Movies.Id == 0)
-                _context.Movies.Add(viewModel.Movies);
+            if (movie.Id == 0)
+                _context.Movies.Add(movie);
             else
             {
-                var movieInDb = _context.Movies.Single(m => m.Id == viewModel.Movies.Id);
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
 
-                movieInDb.Name = viewModel.Movies.Name;
-                movieInDb.ReleaseDate = viewModel.Movies.ReleaseDate;
-                movieInDb.Genre = viewModel.Movies.Genre;
-                movieInDb.NumberinStock = viewModel.Movies.NumberinStock;
+                movieInDb.Name = movie.Name;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.Genre = movie.Genre;
+                movieInDb.NumberinStock = movie.NumberinStock;
             }
             
             _context.SaveChanges();
@@ -73,9 +71,8 @@ namespace VIdly.Controllers
             if (movie == null)
                 return HttpNotFound();
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movies = movie,
                 Genres = _context.Genres
             };
 
